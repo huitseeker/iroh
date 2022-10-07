@@ -24,8 +24,8 @@ use crate::message::{BitswapMessage, BlockPresence, Priority};
 use crate::protocol::ProtocolConfig;
 use crate::{Block, ProtocolId};
 
-const MAX_CONCURRENT_DIALS: usize = 50;
-const MAX_PROVIDERS: usize = 100;
+const MAX_CONCURRENT_DIALS: usize = 100;
+const MAX_PROVIDERS: usize = 1000;
 const MESSAGE_DELAY: Duration = Duration::from_millis(150);
 const HEARTBEAT_DELAY: Duration = Duration::from_millis(100);
 
@@ -240,7 +240,7 @@ impl Default for BitswapConfig {
     fn default() -> Self {
         BitswapConfig {
             max_cached_peers: 20_000,
-            max_ledgers: 1024,
+            max_ledgers: 1024*8,
             idle_timeout: Duration::from_secs(30),
             protocol_config: ProtocolConfig::default(),
         }

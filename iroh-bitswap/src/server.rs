@@ -24,7 +24,7 @@ mod score_ledger;
 mod task_merger;
 
 const PROVIDE_KEYS_BUFFER_SIZE: usize = 2048;
-const PROVIDE_WORKER_MAX: usize = 6;
+const PROVIDE_WORKER_MAX: usize = 24;
 
 #[derive(Debug)]
 pub struct Config {
@@ -38,7 +38,7 @@ pub struct Config {
 impl Default for Config {
     fn default() -> Self {
         Config {
-            task_worker_count: 8,
+            task_worker_count: 16,
             provide_enabled: true,
             has_block_buffer_size: 256,
             decision_config: DecisionConfig::default(),

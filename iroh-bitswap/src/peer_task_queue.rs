@@ -59,7 +59,7 @@ impl Default for Config {
     fn default() -> Self {
         Config {
             ignore_freezing: false,
-            max_outstanding_work_per_peer: 0,
+            max_outstanding_work_per_peer: 1,
         }
     }
 }
