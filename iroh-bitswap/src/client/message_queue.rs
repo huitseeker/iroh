@@ -273,13 +273,13 @@ impl MessageQueue {
                             }
                             None => {
                                 error!("IGNORED: shutting down, repsonse receiver error");
-                                // break;
+                                break;
                             }
                         }
                     }
                     _ = closer_receiver.recv() => {
                         info!("IGNORED: shutting down, close received");
-                        // break;
+                        break;
                     }
                 }
             }
