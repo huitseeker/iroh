@@ -14,7 +14,7 @@ use tracing::{debug, info};
 use crate::{message::BitswapMessage, protocol::ProtocolId, BitswapEvent};
 
 const CONNECT_TIMEOUT: Duration = Duration::from_secs(5);
-const MAX_SEND_TIMEOUT: Duration = Duration::from_secs(10);
+const MAX_SEND_TIMEOUT: Duration = Duration::from_secs(60);
 const MIN_SEND_TIMEOUT: Duration = Duration::from_secs(2);
 const SEND_LATENCY: Duration = Duration::from_secs(1);
 // 100kbit/s
@@ -201,7 +201,7 @@ impl Network {
             message,
             1,
             timeout,
-            Duration::from_millis(0),
+            Duration::from_millis(100),
         )
         .await
     }
