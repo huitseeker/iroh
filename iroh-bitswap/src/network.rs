@@ -16,9 +16,9 @@ use crate::{message::BitswapMessage, protocol::ProtocolId, BitswapEvent};
 const CONNECT_TIMEOUT: Duration = Duration::from_secs(5);
 const MAX_SEND_TIMEOUT: Duration = Duration::from_secs(10);
 const MIN_SEND_TIMEOUT: Duration = Duration::from_secs(2);
-const SEND_LATENCY: Duration = Duration::from_secs(2);
+const SEND_LATENCY: Duration = Duration::from_secs(1);
 // 100kbit/s
-const MIN_SEND_RATE: u64 = (20 * 1000) / 8;
+const MIN_SEND_RATE: u64 = (100 * 1000) / 8;
 
 #[derive(Debug, Clone)]
 pub struct Network {

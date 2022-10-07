@@ -240,7 +240,7 @@ impl Default for BitswapConfig {
     fn default() -> Self {
         BitswapConfig {
             max_cached_peers: 20_000,
-            max_ledgers: 1024*24,
+            max_ledgers: 1024*8,
             idle_timeout: Duration::from_secs(30),
             protocol_config: ProtocolConfig::default(),
         }
