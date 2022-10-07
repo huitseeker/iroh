@@ -354,7 +354,7 @@ impl<KeyStorage: Storage> Node<KeyStorage> {
                 ..
             } => {
                 if let Some(channels) = self.dial_queries.get_mut(&peer_id) {
-                    let mut max_chan = 256;
+                    let mut max_chan = 64;
                     while let Some(channel) = channels.pop() {
                         channel.send(true).ok();
                         max_chan -= 1;
@@ -387,7 +387,7 @@ impl<KeyStorage: Storage> Node<KeyStorage> {
 
                 if let Some(peer_id) = peer_id {
                     if let Some(channels) = self.dial_queries.get_mut(&peer_id) {
-                        let mut max_chan = 256;
+                        let mut max_chan = 64;
                         while let Some(channel) = channels.pop() {
                             channel.send(false).ok();
                             max_chan -= 1;
