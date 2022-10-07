@@ -15,8 +15,6 @@ use futures::future::BoxFuture;
 use futures::stream::FuturesUnordered;
 use futures::{FutureExt, StreamExt};
 use handler::{BitswapHandler, HandlerEvent};
-use iroh_metrics::bitswap::BitswapMetrics;
-use iroh_metrics::inc;
 use libp2p::core::connection::ConnectionId;
 use libp2p::core::ConnectedPoint;
 use libp2p::swarm::dial_opts::DialOpts;
@@ -357,7 +355,6 @@ impl<S: Store> NetworkBehaviour for Bitswap<S> {
                 }
             }
             HandlerEvent::Message { message, protocol } => {
-                inc!(BitswapMetrics::MessagesReceived);
                 // mark peer as responsive
                 if self.get_peer_state(&peer_id) == PeerState::Unresponsive {
                     self.set_peer_state(&peer_id, PeerState::Responsive(connection, protocol));
