@@ -511,10 +511,11 @@ async fn fetch_providers(
 ) -> Result<impl Stream<Item = Result<HashSet<PeerId>>>> {
     let p2p = client.try_p2p()?;
 
-    let a = p2p.fetch_providers_dht(cid).await?;
+    // let a = p2p.fetch_providers_dht(cid).await?;
     let b = p2p.fetch_providers_bitswap(ctx.into(), cid).await?;
 
-    Ok(futures::stream::select(a, b))
+    // Ok(futures::stream::select(a, b))
+    Ok(b)
 }
 
 impl InnerLoaderContext {
