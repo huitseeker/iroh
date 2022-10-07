@@ -272,14 +272,14 @@ impl MessageQueue {
                                 handle_response(&wants, max_valid_latency, &dh_timeout_manager,  response).await;
                             }
                             None => {
-                                error!("shutting down, repsonse receiver error");
-                                break;
+                                error!("IGNORED: shutting down, repsonse receiver error");
+                                // break;
                             }
                         }
                     }
                     _ = closer_receiver.recv() => {
-                        info!("shutting down, close received");
-                        break;
+                        info!("IGNORED: shutting down, close received");
+                        // break;
                     }
                 }
             }
