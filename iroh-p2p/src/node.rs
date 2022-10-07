@@ -357,10 +357,10 @@ impl<KeyStorage: Storage> Node<KeyStorage> {
                     let mut max_chan = 100;
                     while let Some(channel) = channels.pop() {
                         channel.send(true).ok();
-                        max_chan -= 1;
-                        if max_chan == 0 {
-                            break;
-                        }
+                        // max_chan -= 1;
+                        // if max_chan == 0 {
+                        //     break;
+                        // }
                     }
                 }
 
@@ -391,9 +391,9 @@ impl<KeyStorage: Storage> Node<KeyStorage> {
                         while let Some(channel) = channels.pop() {
                             channel.send(false).ok();
                             max_chan -= 1;
-                            if max_chan == 0 {
-                                break;
-                            }
+                            // if max_chan == 0 {
+                            //     break;
+                            // }
                         }
                     }
                 }
