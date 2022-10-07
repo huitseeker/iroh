@@ -273,7 +273,7 @@ impl MessageQueue {
                             }
                             None => {
                                 error!("IGNORED: shutting down, repsonse receiver error");
-                                break;
+                                // break;
                             }
                         }
                     }
