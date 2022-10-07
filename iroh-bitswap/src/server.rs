@@ -119,7 +119,7 @@ impl<S: Store> Server<S> {
                                 }
                                 Err(_) => {
                                     // channel gone, shutdown
-                                    break;
+                                    // break;
                                 }
                             }
                         }
@@ -153,7 +153,7 @@ impl<S: Store> Server<S> {
                                     }
                                     None => {
                                         // channel got closed
-                                        break;
+                                        // break;
                                     }
                                 }
                             }
@@ -184,7 +184,7 @@ impl<S: Store> Server<S> {
                                     }
                                     None => {
                                         // channel closed
-                                        break;
+                                        // break;
                                     }
                                 }
                             }
